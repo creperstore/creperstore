@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creperstore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --card: #f5f5f5;
+    }
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #ffffff;
+      --card: #1e1e1e;
+    }
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      padding: 1rem;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    button.toggle-theme {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: var(--card);
+      color: var(--text);
+    }
+    .channel-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .channel-buttons a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .channel-buttons a.youtube {
+      background: #ff0000;
+    }
+    .channel-buttons img {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+    .product {
+      background: var(--card);
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+    .product h2 {
+      margin-top: 0;
+    }
+    .beli {
+      background: #25d366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .pembayaran, .support {
+      background: var(--card);
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+    .copy-btn, .qris-btn {
+      margin-left: 10px;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 0.3rem 0.7rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .support a.button {
+      display: inline-flex;
+      align-items: center;
+      background: #25d366;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+    .support a.button i {
+      margin-right: 5px;
+    }
+    #qris-img {
+      display: none;
+      margin-top: 1rem;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🛍️creperstore</h1>
+    <button class="toggle-theme" onclick="toggleTheme()" id="theme-toggle">🌞 Ganti Tema</button>
+  </header>  <div class="channel-buttons">
+    <a href="https://whatsapp.com/channel/0029VbANhWi0lwgw8pCn9u0b" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" /> WhatsApp Channel
+    </a>
+    <a href="https://www.youtube.com/@CREPERSTORE" target="_blank" class="youtube">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" /> YouTube Channel
+    </a>
+  </div>  <div class="product">
+    <h2>Murid by creper</h2>
+    <ul>
+      <li>Nokos</li>
+      <li>Logo</li>
+      <li>Suntik</li>
+    </ul>
+    <p>Harga: <del>Rp.10.000</del> <strong>Rp.5.000</strong></p>
+    <a class="beli" href="https://wa.me/6281260703019?text=Mau join murid bang" target="_blank">Beli</a>
+  </div>  <div class="product">
+    <h2>Sc simpel jpmch v4</h2>
+    <ul>
+      <li>Cooldown</li>
+      <li>Database</li>
+      <li>Blacklist</li>
+    </ul>
+    <p>[ENC] Rp.5.000</p>
+    <p>[NO ENC] Rp.10.000</p>
+    <p>[NO ENC FREE UP SELAMANYA] Rp.25.000</p>
+    <a class="beli" href="https://wa.me/6281260703019?text=Mau buy sc jpmch bang" target="_blank">Beli</a>
+  </div>  <div class="pembayaran">
+    <h3>Pembayaran</h3>
+    <p>Dana: 081263285898 <button class="copy-btn" onclick="copyText('081263285898')">Salin</button></p>
+    <p>Gopay: 081263285898 <button class="copy-btn" onclick="copyText('081263285898')">Salin</button></p>
+    <p>Qris: <button class="qris-btn" onclick="toggleQris()">Klik untuk memperbesar</button></p>
+    <img id="qris-img" src="https://files.catbox.moe/jilw0i.jpg" alt="QRIS Payment" />
+  </div>  <div class="support">
+    <h3>Support</h3>
+    <p><i class="fas fa-envelope"></i> Email: creperbisnis@gmail.com</p>
+    <a href="https://wa.me/6281260703019" target="_blank" class="button">
+      <i class="fab fa-whatsapp"></i> WhatsApp Support
+    </a>
+  </div>  <script>
+    function toggleTheme() {
+      const current = document.body.dataset.theme;
+      const btn = document.getElementById("theme-toggle");
+      if (current === "dark") {
+        document.body.dataset.theme = "";
+        btn.textContent = "🌞 Ganti Tema";
+      } else {
+        document.body.dataset.theme = "dark";
+        btn.textContent = "🌙 Ganti Tema";
+      }
+    }
+    function copyText(text) {
+      navigator.clipboard.writeText(text);
+      alert("Disalin: " + text);
+    }
+    function toggleQris() {
+      const img = document.getElementById('qris-img');
+      img.style.display = img.style.display === 'block' ? 'none' : 'block';
+    }
+  </script></body>
+</html>
